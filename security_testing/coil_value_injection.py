@@ -19,7 +19,7 @@ coil_value = client.read_coils(0, 1).bits[0]
 print("Coil Status : ", coil_value)
 
 # new_coil_value = False 
-new_coil_value = bool(input("Enter new coil value (True / False) : "))
+new_coil_value = eval(input("Enter new coil value (True / False) : "))
 
 while True:
     # time.sleep(0.01)
