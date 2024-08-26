@@ -48,21 +48,21 @@
             },
             {
                "type":"HTML",
-               "content":"Current Pressure",
-               "x":107,
-               "y":190
+               "content":"<b style=\"font-size:1rem\">Current Pressure<\/b>",
+               "x":93,
+               "y":208
             },
             {
                "type":"HTML",
-               "content":"Opening Pressure",
-               "x":321,
-               "y":191
+               "content":"<b style=\"font-size:1rem\">Opening Pressure<\/b>\n",
+               "x":293,
+               "y":208
             },
             {
                "type":"HTML",
-               "content":"Safety valve opened",
-               "x":473,
-               "y":190
+               "content":"<b style=\"font-size: 1rem\">Safety valve opened<\/b>",
+               "x":474,
+               "y":201
             },
             {
                "type":"BINARY_GRAPHIC",
@@ -80,15 +80,15 @@
             },
             {
                "type":"HTML",
-               "content":"Safety valve closed",
-               "x":466,
-               "y":91
+               "content":"<b style=\"font-size: 1rem\">Safety valve closed<\/b>\n",
+               "x":472,
+               "y":104
             }
          ],
          "sharingUsers":[
          ],
          "backgroundFilename":null,
-         "name":"HMI_Praxis",
+         "name":"Pressure Vessel Experiment",
          "xid":"GV_914282"
       }
    ],
@@ -97,15 +97,14 @@
          "xid":"DS_745829",
          "type":"MODBUS_IP",
          "alarmLevels":{
-            "POINT_WRITE_EXCEPTION":"URGENT",
             "DATA_SOURCE_EXCEPTION":"URGENT",
-            "POINT_READ_EXCEPTION":"URGENT"
+            "POINT_READ_EXCEPTION":"URGENT",
+            "POINT_WRITE_EXCEPTION":"URGENT"
          },
          "updatePeriodType":"SECONDS",
          "transportType":"TCP",
          "contiguousBatches":false,
          "createSlaveMonitorPoints":false,
-         "createSocketMonitorPoint":false,
          "enabled":true,
          "encapsulated":false,
          "host":"192.168.0.106",
@@ -138,8 +137,7 @@
             "registerCount":0,
             "settableOverride":false,
             "slaveId":1,
-            "slaveMonitor":false,
-            "socketMonitor":false
+            "slaveMonitor":false
          },
          "eventDetectors":[
          ],
@@ -179,8 +177,7 @@
             "registerCount":0,
             "settableOverride":true,
             "slaveId":1,
-            "slaveMonitor":false,
-            "socketMonitor":false
+            "slaveMonitor":false
          },
          "eventDetectors":[
          ],
@@ -220,8 +217,7 @@
             "registerCount":0,
             "settableOverride":true,
             "slaveId":1,
-            "slaveMonitor":false,
-            "socketMonitor":false
+            "slaveMonitor":false
          },
          "eventDetectors":[
          ],
@@ -260,7 +256,6 @@
          "password":"0DPiKuNIrrVmD8IUCuw1hQxNqZc=",
          "phone":"",
          "receiveOwnAuditEvents":false,
-         "userProfile":0,
          "username":"admin"
       }
    ],
@@ -277,6 +272,9 @@
          "xid":"WL_599907",
          "user":"admin",
          "dataPoints":[
+            "DP_567425",
+            "DP_574591",
+            "DP_141402"
          ],
          "sharingUsers":[
          ],
@@ -309,6 +307,26 @@
    "scripts":[
    ],
    "pointValues":[
+      {
+         "pointXid":"DP_567425",
+         "timestamp":1724689722102,
+         "value":"2500.0"
+      },
+      {
+         "pointXid":"DP_567425",
+         "timestamp":1724689691102,
+         "value":"3100.0"
+      },
+      {
+         "pointXid":"DP_567425",
+         "timestamp":1724689481102,
+         "value":"1000.0"
+      },
+      {
+         "pointXid":"DP_567425",
+         "timestamp":1724689408102,
+         "value":"0.0"
+      },
       {
          "pointXid":"DP_567425",
          "timestamp":1724214753647,
@@ -593,6 +611,16 @@
          "pointXid":"DP_574591",
          "timestamp":1724140564221,
          "value":"0.0"
+      },
+      {
+         "pointXid":"DP_141402",
+         "timestamp":1724689722102,
+         "value":"false"
+      },
+      {
+         "pointXid":"DP_141402",
+         "timestamp":1724689691102,
+         "value":"true"
       },
       {
          "pointXid":"DP_141402",
@@ -1002,34 +1030,34 @@
    ],
    "systemSettings":[
       {
-         "filedata.path":"~\/WEB-INF\/filedata",
-         "reportPurgePeriods":1,
-         "language":"pt",
-         "futureDateLimitPeriodType":3,
-         "httpClientProxyUsername":"",
-         "eventPurgePeriodType":7,
-         "httpClientProxyPort":-1,
-         "httpdsPrologue":"",
-         "uiPerformance":2000,
-         "emailSmtpHost":"",
          "plotGridlineColour":"silver",
-         "emailSmtpPassword":"",
-         "httpdsEpilogue":"",
-         "databaseSchemaVersion":"1.12.4",
-         "emailFromAddress":"",
-         "groveLogging":false,
-         "reportPurgePeriodType":6,
-         "futureDateLimitPeriods":24,
-         "plotBackgroundColour":"white",
-         "httpClientProxyPassword":"",
-         "instanceDescription":"ScadaBR - 1.0 CE",
-         "emailFromName":"ScadaBR",
-         "newVersionNotificationLevel":"S",
-         "emailSmtpPort":25,
-         "httpClientProxyServer":"",
-         "chartBackgroundColour":"white",
          "emailSmtpUsername":"",
-         "eventPurgePeriods":1
+         "instanceDescription":"ScadaBR - 1.0 CE",
+         "filedata.path":"~\/WEB-INF\/filedata",
+         "databaseSchemaVersion":"1.12.4",
+         "uiPerformance":2000,
+         "chartBackgroundColour":"white",
+         "futureDateLimitPeriods":24,
+         "httpClientProxyPassword":"",
+         "httpClientProxyPort":-1,
+         "httpdsEpilogue":"",
+         "groveLogging":false,
+         "plotBackgroundColour":"white",
+         "eventPurgePeriods":1,
+         "futureDateLimitPeriodType":3,
+         "reportPurgePeriods":1,
+         "httpClientProxyUsername":"",
+         "reportPurgePeriodType":6,
+         "emailFromName":"ScadaBR",
+         "emailSmtpHost":"",
+         "emailSmtpPassword":"",
+         "emailFromAddress":"",
+         "httpClientProxyServer":"",
+         "eventPurgePeriodType":7,
+         "newVersionNotificationLevel":"S",
+         "language":"pt",
+         "emailSmtpPort":25,
+         "httpdsPrologue":""
       }
    ]
 }
