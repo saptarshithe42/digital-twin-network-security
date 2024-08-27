@@ -1,0 +1,85 @@
+Vagrant.configure("2") do |config|
+
+    # Define iosimulator VM
+    config.vm.define "iosimulator" do |iosimulator|
+      iosimulator.vm.box = "gusztavvargadr/windows-10"
+      iosimulator.vm.hostname = "iosimulator"
+      iosimulator.disksize.size = '10GB'
+      iosimulator.vm.network "private_network", ip: "192.168.56.103"
+      iosimulator.vm.communicator = "winrm"
+      
+      iosimulator.vm.provider "virtualbox" do |vb|
+        vb.memory = "2048"
+        vb.cpus = 2
+        vb.gui = true
+      end
+    end
+
+    # Define testsecurity VM
+    config.vm.define "testsecurity" do |testsecurity|
+      testsecurity.vm.box = "kalilinux/rolling"
+      testsecurity.vm.network "private_network", ip: "192.168.56.104"
+      testsecurity.vm.hostname = "testsecurity"
+      testsecurity.disksize.size = '10GB'
+
+      testsecurity.vm.provider "virtualbox" do |vb|
+        vb.gui = true
+        vb.memory = "2048"
+        vb.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
+      end
+
+      testsecurity.vm.provision "shell", inline: <<-SHELL
+        cd Desktop/
+        git clone https://github.com/saptarshithe42/digital-twin-network-security.git
+      SHELL
+    end
+
+
+    # Define scadabr VM
+    config.vm.define "scadabr" do |scadabr|
+      scadabr.vm.box = "saptarshithe42/ubuntu-desktop-22-04-minimal-installation"
+      scadabr.vm.box_version = "2.0.0"
+      scadabr.disksize.size = '10GB'
+      scadabr.vm.network "private_network", ip: "192.168.56.101"
+      scadabr.vm.hostname = "scadabr"
+
+      scadabr.vm.provider "virtualbox" do |vb|
+        vb.gui = true
+        vb.memory = "2048"
+      end
+
+      scadabr.vm.provision "shell", inline: <<-SHELL
+        apt-get update
+        apt-get install -y git net-tools
+        cd Desktop/
+        git clone https://github.com/thiagoralves/ScadaBR_Installer
+        cd ScadaBR_Installer/
+        sudo ./install_scadabr.sh
+      SHELL
+    end
+
+     # Define openplc VM
+     config.vm.define "openplc" do |openplc|
+      openplc.vm.box = "saptarshithe42/ubuntu-desktop-22-04-minimal-installation"
+      openplc.vm.box_version = "2.0.0"
+      openplc.disksize.size = '10GB'
+      openplc.vm.network "private_network", ip: "192.168.56.102"
+      openplc.vm.hostname = "openplc"
+
+      openplc.vm.provider "virtualbox" do |vb|
+        vb.gui = true
+        vb.memory = "2048"
+      end
+
+      openplc.vm.provision "shell", inline: <<-SHELL
+        apt-get update
+        apt-get install -y git net-tools
+        cd Desktop/
+        git clone https://github.com/thiagoralves/OpenPLC_v3
+        cd OpenPLC_v3/
+        ./install.sh linux
+        sudo ./start_openplc.sh &
+      SHELL
+    end
+end
+  
