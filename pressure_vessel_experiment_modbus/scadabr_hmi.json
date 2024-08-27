@@ -111,7 +111,7 @@
          "maxReadBitCount":2000,
          "maxReadRegisterCount":125,
          "maxWriteRegisterCount":120,
-         "name":"PLC_Praxis",
+         "name":"Pressure_Vessel_PLC",
          "port":502,
          "quantize":false,
          "retries":2,
@@ -146,7 +146,7 @@
          "chartRenderer":null,
          "dataSourceXid":"DS_745829",
          "defaultCacheSize":1,
-         "deviceName":"PLC_Praxis",
+         "deviceName":"Pressure_Vessel_PLC",
          "discardExtremeValues":false,
          "discardHighLimit":1.7976931348623157E308,
          "discardLowLimit":-1.7976931348623157E308,
@@ -186,7 +186,7 @@
          "chartRenderer":null,
          "dataSourceXid":"DS_745829",
          "defaultCacheSize":1,
-         "deviceName":"PLC_Praxis",
+         "deviceName":"Pressure_Vessel_PLC",
          "discardExtremeValues":false,
          "discardHighLimit":1.7976931348623157E308,
          "discardLowLimit":-1.7976931348623157E308,
@@ -226,7 +226,7 @@
          "chartRenderer":null,
          "dataSourceXid":"DS_745829",
          "defaultCacheSize":1,
-         "deviceName":"PLC_Praxis",
+         "deviceName":"Pressure_Vessel_PLC",
          "discardExtremeValues":false,
          "discardHighLimit":1.7976931348623157E308,
          "discardLowLimit":-1.7976931348623157E308,
@@ -268,6 +268,15 @@
    "eventHandlers":[
    ],
    "watchLists":[
+      {
+         "xid":"WL_897946",
+         "user":"admin",
+         "dataPoints":[
+         ],
+         "sharingUsers":[
+         ],
+         "name":"(unnamed)"
+      },
       {
          "xid":"WL_599907",
          "user":"admin",
