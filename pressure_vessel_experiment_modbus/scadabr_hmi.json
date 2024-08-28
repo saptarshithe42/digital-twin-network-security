@@ -40,7 +40,7 @@
                "displayControls":true,
                "displayText":false,
                "nameOverride":"",
-               "oneImageIndex":8,
+               "oneImageIndex":7,
                "settableOverride":false,
                "x":532,
                "y":151,
@@ -107,7 +107,7 @@
          "createSlaveMonitorPoints":false,
          "enabled":true,
          "encapsulated":false,
-         "host":"192.168.0.106",
+         "host":"192.168.56.102",
          "maxReadBitCount":2000,
          "maxReadRegisterCount":125,
          "maxWriteRegisterCount":120,
@@ -269,21 +269,33 @@
    ],
    "watchLists":[
       {
-         "xid":"WL_897946",
-         "user":"admin",
-         "dataPoints":[
-         ],
-         "sharingUsers":[
-         ],
-         "name":"(unnamed)"
-      },
-      {
          "xid":"WL_599907",
          "user":"admin",
          "dataPoints":[
             "DP_567425",
             "DP_574591",
             "DP_141402"
+         ],
+         "sharingUsers":[
+         ],
+         "name":"(unnamed)"
+      },
+      {
+         "xid":"WL_344522",
+         "user":"admin",
+         "dataPoints":[
+            "DP_567425",
+            "DP_574591",
+            "DP_141402"
+         ],
+         "sharingUsers":[
+         ],
+         "name":"(unnamed)"
+      },
+      {
+         "xid":"WL_897946",
+         "user":"admin",
+         "dataPoints":[
          ],
          "sharingUsers":[
          ],
@@ -300,15 +312,6 @@
          "sharingUsers":[
          ],
          "name":"(unnamed)"
-      },
-      {
-         "xid":"WL_344522",
-         "user":"admin",
-         "dataPoints":[
-         ],
-         "sharingUsers":[
-         ],
-         "name":"(unnamed)"
       }
    ],
    "maintenanceEvents":[
@@ -316,6 +319,81 @@
    "scripts":[
    ],
    "pointValues":[
+      {
+         "pointXid":"DP_567425",
+         "timestamp":1724825053265,
+         "value":"2800.0"
+      },
+      {
+         "pointXid":"DP_567425",
+         "timestamp":1724825046265,
+         "value":"3100.0"
+      },
+      {
+         "pointXid":"DP_567425",
+         "timestamp":1724825030265,
+         "value":"3500.0"
+      },
+      {
+         "pointXid":"DP_567425",
+         "timestamp":1724825010265,
+         "value":"2000.0"
+      },
+      {
+         "pointXid":"DP_567425",
+         "timestamp":1724824139265,
+         "value":"3200.0"
+      },
+      {
+         "pointXid":"DP_567425",
+         "timestamp":1724818883265,
+         "value":"2000.0"
+      },
+      {
+         "pointXid":"DP_567425",
+         "timestamp":1724818864265,
+         "value":"3050.0"
+      },
+      {
+         "pointXid":"DP_567425",
+         "timestamp":1724818846265,
+         "value":"2500.0"
+      },
+      {
+         "pointXid":"DP_567425",
+         "timestamp":1724818762265,
+         "value":"0.0"
+      },
+      {
+         "pointXid":"DP_567425",
+         "timestamp":1724774633108,
+         "value":"3100.0"
+      },
+      {
+         "pointXid":"DP_567425",
+         "timestamp":1724774433108,
+         "value":"2500.0"
+      },
+      {
+         "pointXid":"DP_567425",
+         "timestamp":1724772448108,
+         "value":"2000.0"
+      },
+      {
+         "pointXid":"DP_567425",
+         "timestamp":1724772441108,
+         "value":"3100.0"
+      },
+      {
+         "pointXid":"DP_567425",
+         "timestamp":1724772415108,
+         "value":"2000.0"
+      },
+      {
+         "pointXid":"DP_567425",
+         "timestamp":1724772367923,
+         "value":"0.0"
+      },
       {
          "pointXid":"DP_567425",
          "timestamp":1724689722102,
@@ -538,6 +616,31 @@
       },
       {
          "pointXid":"DP_574591",
+         "timestamp":1724824124265,
+         "value":"3000.0"
+      },
+      {
+         "pointXid":"DP_574591",
+         "timestamp":1724823630265,
+         "value":"3500.0"
+      },
+      {
+         "pointXid":"DP_574591",
+         "timestamp":1724820016265,
+         "value":"4000.0"
+      },
+      {
+         "pointXid":"DP_574591",
+         "timestamp":1724772415108,
+         "value":"3000.0"
+      },
+      {
+         "pointXid":"DP_574591",
+         "timestamp":1724772365923,
+         "value":"0.0"
+      },
+      {
+         "pointXid":"DP_574591",
          "timestamp":1724214728647,
          "value":"3000.0"
       },
@@ -620,6 +723,86 @@
          "pointXid":"DP_574591",
          "timestamp":1724140564221,
          "value":"0.0"
+      },
+      {
+         "pointXid":"DP_141402",
+         "timestamp":1724825053265,
+         "value":"false"
+      },
+      {
+         "pointXid":"DP_141402",
+         "timestamp":1724825030265,
+         "value":"true"
+      },
+      {
+         "pointXid":"DP_141402",
+         "timestamp":1724825010265,
+         "value":"false"
+      },
+      {
+         "pointXid":"DP_141402",
+         "timestamp":1724824365265,
+         "value":"true"
+      },
+      {
+         "pointXid":"DP_141402",
+         "timestamp":1724824360265,
+         "value":"false"
+      },
+      {
+         "pointXid":"DP_141402",
+         "timestamp":1724824359265,
+         "value":"true"
+      },
+      {
+         "pointXid":"DP_141402",
+         "timestamp":1724824296265,
+         "value":"false"
+      },
+      {
+         "pointXid":"DP_141402",
+         "timestamp":1724824295265,
+         "value":"true"
+      },
+      {
+         "pointXid":"DP_141402",
+         "timestamp":1724824261265,
+         "value":"false"
+      },
+      {
+         "pointXid":"DP_141402",
+         "timestamp":1724824138265,
+         "value":"true"
+      },
+      {
+         "pointXid":"DP_141402",
+         "timestamp":1724818883265,
+         "value":"false"
+      },
+      {
+         "pointXid":"DP_141402",
+         "timestamp":1724818864265,
+         "value":"true"
+      },
+      {
+         "pointXid":"DP_141402",
+         "timestamp":1724818762265,
+         "value":"false"
+      },
+      {
+         "pointXid":"DP_141402",
+         "timestamp":1724774633108,
+         "value":"true"
+      },
+      {
+         "pointXid":"DP_141402",
+         "timestamp":1724772448108,
+         "value":"false"
+      },
+      {
+         "pointXid":"DP_141402",
+         "timestamp":1724772441108,
+         "value":"true"
       },
       {
          "pointXid":"DP_141402",
