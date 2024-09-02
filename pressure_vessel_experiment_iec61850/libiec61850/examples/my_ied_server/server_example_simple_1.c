@@ -69,12 +69,6 @@ main(int argc, char** argv)
 
     while (running) {
     
-    	// read input from 'pressure_input.txt' file
-    	FILE* fptr = fopen("pressure_input.txt", "r");
-    	fscanf(fptr, "%hd", &pressure);
-    	fclose(fptr);
-    
-    	// update pressure value in the IED
     	IedServer_lockDataModel(iedServer);
  
     	IedServer_updateAttributeValue(iedServer, 
@@ -82,7 +76,7 @@ main(int argc, char** argv)
  
     	IedServer_unlockDataModel(iedServer);
  
-    	//pressure += 10;
+    	pressure += 10;
  	
     	MmsValue_setInt16(pressureValue, pressure);
  
