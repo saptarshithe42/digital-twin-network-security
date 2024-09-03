@@ -78,11 +78,9 @@ main(int argc, char** argv)
     	IedServer_lockDataModel(iedServer);
  
     	IedServer_updateAttributeValue(iedServer, 
-                     IEDMODEL_LogicalDevice_GGIO1_AnIn1_mag_f, pressureValue);
+                     IEDMODEL_LogicalDevice_GGIO1_CurrentPressure_mag_f, pressureValue);
  
     	IedServer_unlockDataModel(iedServer);
- 
-    	//pressure += 10;
  	
     	MmsValue_setInt16(pressureValue, pressure);
  
