@@ -1,0 +1,95 @@
+Vagrant.configure("2") do |config|
+
+    # Define testsecurity VM
+    config.vm.define "testsecurity" do |testsecurity|
+      testsecurity.vm.box = "kalilinux/rolling"
+      testsecurity.vm.network "private_network", ip: "192.168.56.111"
+      testsecurity.vm.hostname = "testsecurity"
+      testsecurity.disksize.size = '10GB'
+
+      testsecurity.vm.provider "virtualbox" do |vb|
+        vb.gui = true
+        vb.memory = "2048"
+        vb.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
+      end
+
+      testsecurity.vm.provision "shell", inline: <<-SHELL
+        cd Desktop/
+        git clone https://github.com/saptarshithe42/digital-twin-network-security.git
+      SHELL
+    end
+
+
+    # Define scadabr VM
+    config.vm.define "scadabr" do |scadabr|
+      scadabr.vm.box = "saptarshithe42/ubuntu-desktop-22-04-minimal-installation"
+      scadabr.vm.box_version = "2.0.0"
+      scadabr.disksize.size = '10GB'
+      scadabr.vm.network "private_network", ip: "192.168.56.112"
+      scadabr.vm.hostname = "scadabr"
+
+      scadabr.vm.provider "virtualbox" do |vb|
+        vb.gui = true
+        vb.memory = "2048"
+      end
+
+      scadabr.vm.provision "shell", inline: <<-SHELL
+        apt-get update
+        apt-get install -y git net-tools
+        cd Desktop/
+        git clone https://github.com/thiagoralves/ScadaBR_Installer
+        cd ScadaBR_Installer/
+        sudo ./install_scadabr.sh
+      SHELL
+    end
+
+
+    # Define openplc61850 VM
+    config.vm.define "openplc61850" do |openplc61850|
+      openplc61850.vm.box = "saptarshithe42/ubuntu-desktop-22-04-minimal-installation"
+      openplc61850.vm.box_version = "2.0.0"
+      openplc61850.disksize.size = '10GB'
+      openplc61850.vm.network "private_network", ip: "192.168.56.113"
+      openplc61850.vm.hostname = "openplc61850"
+
+      openplc61850.vm.provider "virtualbox" do |vb|
+        vb.gui = true
+        vb.memory = "2048"
+      end
+
+      openplc61850.vm.provision "shell", inline: <<-SHELL
+        apt-get update
+        apt-get install -y git net-tools
+        cd Desktop/
+        git clone https://github.com/saptarshithe42/digital-twin-network-security
+        git clone https://github.com/smartgridadsc/OpenPLC61850.git
+        cd OpenPLC61850/
+        ./install.sh linux
+        sudo reboot
+      SHELL
+    end
+
+
+    # Define iedsimulator VM
+    config.vm.define "iedsimulator" do |iedsimulator|
+      iedsimulator.vm.box = "saptarshithe42/ubuntu-desktop-22-04-minimal-installation"
+      iedsimulator.vm.box_version = "2.0.0"
+      iedsimulator.disksize.size = '10GB'
+      iedsimulator.vm.network "private_network", ip: "192.168.56.114"
+      iedsimulator.vm.hostname = "iedsimulator"
+
+      iedsimulator.vm.provider "virtualbox" do |vb|
+        vb.gui = true
+        vb.memory = "2048"
+      end
+
+      iedsimulator.vm.provision "shell", inline: <<-SHELL
+        apt-get update
+        apt-get upgrade -y
+        apt-get install -y git net-tools build-essential
+        cd Desktop/
+        git clone https://github.com/saptarshithe42/digital-twin-network-security
+      SHELL
+    end
+end
+  
