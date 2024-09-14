@@ -1,0 +1,15 @@
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;SCL xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.iec.ch/61850/2003/SCL"&gt;
+  &lt;Header id="IED01" nameStructure="IEDName" /&gt;
+  &lt;Communication&gt;
+    &lt;SubNetwork name="node"&gt;
+      &lt;ConnectedAP iedName="IED01" apName="W1"&gt;
+        &lt;Address&gt;
+          &lt;P type="IP"&gt;192.168.0.108&lt;/P&gt;
+          &lt;P type="IP-SUBNET"&gt;255.255.255.0&lt;/P&gt;
+          &lt;P type="IP-GATEWAY"&gt;192.168.0.1&lt;/P&gt;
+        &lt;/Address&gt;
+      &lt;/ConnectedAP&gt;
+    &lt;/SubNetwork&gt;
+  &lt;/Communication&gt;
+  

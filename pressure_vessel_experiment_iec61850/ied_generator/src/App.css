@@ -1,0 +1,22 @@
+.App {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  /* padding: 2rem; */
+}
+
+
+.ied-generator-panel {
+  border: 2px solid black;
+  width: 50vw;
+  padding: 2rem;
+}
+
+.ied-xml-code-view {
+  border: 2px solid black;
+  width: 50vw;
+  padding: 2rem;
+
+  /* font-size: 1rem; */
+}
