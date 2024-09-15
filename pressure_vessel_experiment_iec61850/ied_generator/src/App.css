@@ -8,15 +8,29 @@
 
 
 .ied-generator-panel {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   width: 50vw;
-  padding: 2rem;
+  padding: 3rem;
+  overflow: auto;
+  height: 100%;
+  max-height: 100vh;
 }
 
 .ied-xml-code-view {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   width: 50vw;
   padding: 2rem;
 
   /* font-size: 1rem; */
+}
+
+#ied-xml-code {
+  overflow: auto;
+  height: 100%;
+  max-height: 100vh;
+  color: blue;
+}
+
+.user-input {
+  color: red;
 }
