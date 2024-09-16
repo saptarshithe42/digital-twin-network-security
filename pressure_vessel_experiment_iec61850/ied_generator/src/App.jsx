@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import IED_xml from "./IED_xml";
+import ShortUniqueId from "short-unique-id";
+import { bTypeList } from "./data/DA_bType_list";
 
 function App() {
     const [IEDName, setIEDName] = useState("");
@@ -13,10 +15,14 @@ function App() {
     const [LDeviceName, setLDeviceName] = useState("");
     const [LN0lnType, setLN0lnType] = useState("");
     const [LN0DatasetName, setLN0DatasetName] = useState("");
+    const [reportIntegrityPeriod, setReportIntegrityPeriod] = useState(1000);
+    const [maxClientsAllowed, setMaxClientsAllowed] = useState(5);
     const [LNType, setLNType] = useState("");
     const [LNClass, setLNClass] = useState("");
     const [LN_DOI_List, setLN_DOI_List] = useState([]);
     const [numberOfDOIs, setNumberOfDOIs] = useState(0);
+
+    const { randomUUID } = new ShortUniqueId({ length: 6 });
 
     const fillExampleValues = () => {
         setIEDName("IED01");
@@ -29,11 +35,22 @@ function App() {
         setLDeviceName("LogicalDevice");
         setLN0lnType("LLN0_0");
         setLN0DatasetName("Measurements");
+        setReportIntegrityPeriod(1000);
+        setMaxClientsAllowed(5);
         setLNType("GGIO1");
         setLNClass("GGIO");
 
         setNumberOfDOIs(1);
-        setLN_DOI_List([{ name: "CurrentPressure", cdc: "MV" }]);
+        setLN_DOI_List([
+            {
+                name: "CurrentPressure",
+                cdc: "MV",
+                fc: "MX",
+                openplcVar: "raw_pressure",
+                openplcVarType: "sMonitoringVar",
+                bType: "INT16",
+            },
+        ]);
     };
 
     const clearForm = () => {
@@ -47,6 +64,8 @@ function App() {
         setLDeviceName("");
         setLN0lnType("");
         setLN0DatasetName("");
+        setReportIntegrityPeriod(1000);
+        setMaxClientsAllowed(5);
         setLNType("");
         setLNClass("");
 
@@ -63,7 +82,7 @@ function App() {
             }
         );
         element.href = URL.createObjectURL(file);
-        element.download = "IED.xml";
+        element.download = `IED_${randomUUID()}.xml`;
         document.body.appendChild(element); // Required for this to work in FireFox
         element.click();
     };
@@ -86,6 +105,42 @@ function App() {
         console.log(newValues);
     };
 
+    const handleDOIfcChange = (e, index) => {
+        const newValue = e.target.value;
+        let newValues = [...LN_DOI_List];
+        newValues[index] = { ...newValues[index], fc: newValue };
+        setLN_DOI_List(newValues);
+
+        console.log(newValues);
+    };
+
+    const handleDOIOpenPLCVariableNameChange = (e, index) => {
+        const newValue = e.target.value;
+        let newValues = [...LN_DOI_List];
+        newValues[index] = { ...newValues[index], openplcVar: newValue };
+        setLN_DOI_List(newValues);
+
+        console.log(newValues);
+    };
+
+    const handleDOIOpenPLCVariableTypeChange = (e, index) => {
+        const newValue = e.target.value;
+        let newValues = [...LN_DOI_List];
+        newValues[index] = { ...newValues[index], openplcVarType: newValue };
+        setLN_DOI_List(newValues);
+
+        console.log(newValues);
+    };
+
+    const handlebTypeChange = (e, index) => {
+        const newValue = e.target.value;
+        let newValues = [...LN_DOI_List];
+        newValues[index] = { ...newValues[index], bType: newValue };
+        setLN_DOI_List(newValues);
+
+        console.log(newValues);
+    };
+
     useEffect(() => {
         setLN_DOI_List((prev) => {
             let arr = [...prev];
@@ -98,6 +153,15 @@ function App() {
         <div className="App">
             <div className="ied-generator-panel">
                 <h1 style={{ textAlign: "center" }}>IED Generator</h1>
+                <div style={{ textAlign: "center" }}>
+                    <a
+                        href="https://github.com/saptarshithe42/digital-twin-network-security/tree/master/pressure_vessel_experiment_iec61850/ied_generator"
+                        target="_"
+                    >
+                        Github Repo
+                    </a>
+                </div>
+                <br />
                 <div style={{ display: "flex", justifyContent: "center" }}>
                     <button onClick={fillExampleValues}>Example</button>
                     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -184,6 +248,29 @@ function App() {
                         />
                         <br />
                         <br />
+                        <h4>Report Settings</h4>
+                        <label>Enter Report Integrity Period (in ms) : </label>
+                        <input
+                            value={reportIntegrityPeriod}
+                            onChange={(e) =>
+                                setReportIntegrityPeriod(e.target.value)
+                            }
+                            type="number"
+                        />
+                        <br />
+                        <br />
+                        <label>
+                            Enter Max Number of Clients that can connect :{" "}
+                        </label>
+                        <input
+                            value={maxClientsAllowed}
+                            onChange={(e) =>
+                                setMaxClientsAllowed(e.target.value)
+                            }
+                            type="number"
+                        />
+                        <br />
+                        <br />
                     </div>
                 </section>
                 <section>
@@ -216,6 +303,7 @@ function App() {
                         {Array.from({ length: numberOfDOIs }).map(
                             (_item, index) => (
                                 <div>
+                                    <h3>DOI{index + 1}</h3>
                                     <label>
                                         Enter name of DOI{index + 1} :{" "}
                                     </label>
@@ -242,6 +330,116 @@ function App() {
                                     />
                                     <br />
                                     <br />
+                                    <label>
+                                        Generated DOType name of DOI{index + 1}{" "}
+                                        :{" "}
+                                    </label>
+                                    <input
+                                        id={"DOI" + index}
+                                        value={
+                                            LN_DOI_List[index]?.cdc +
+                                                "_" +
+                                                LN_DOI_List[index]?.name || ""
+                                        }
+                                        disabled
+                                        type="text"
+                                    />
+                                    <br />
+                                    <br />
+                                    <label>
+                                        Generated DAType name of the DOType for
+                                        DOI{index + 1} :{" "}
+                                    </label>
+                                    <input
+                                        id={"DOI" + index}
+                                        value={
+                                            LN_DOI_List[index]?.cdc +
+                                                "_" +
+                                                LN_DOI_List[index]?.name +
+                                                "_Value" || ""
+                                        }
+                                        disabled
+                                        type="text"
+                                    />
+                                    <br />
+                                    <br />
+                                    <label>
+                                        Enter fc value of DOI{index + 1} :{" "}
+                                    </label>
+                                    <input
+                                        id={"DOI" + index}
+                                        value={LN_DOI_List[index]?.fc || ""}
+                                        onChange={(e) =>
+                                            handleDOIfcChange(e, index)
+                                        }
+                                        type="text"
+                                    />
+                                    <br />
+                                    <br />
+                                    <label>
+                                        Enter corresponding OpenPLC61850
+                                        variable name for DOI{index + 1} :{" "}
+                                    </label>
+                                    <input
+                                        id={"DOI" + index}
+                                        value={
+                                            LN_DOI_List[index]?.openplcVar || ""
+                                        }
+                                        onChange={(e) =>
+                                            handleDOIOpenPLCVariableNameChange(
+                                                e,
+                                                index
+                                            )
+                                        }
+                                        type="text"
+                                    />
+                                    <br />
+                                    <br />
+                                    <label>
+                                        Enter OpenPLC61850 variable type for DOI
+                                        {index + 1} :{" "}
+                                    </label>
+                                    <select
+                                        value={
+                                            LN_DOI_List[index]
+                                                ?.openplcVarType ||
+                                            "sMonitoringVar"
+                                        }
+                                        onChange={(e) =>
+                                            handleDOIOpenPLCVariableTypeChange(
+                                                e,
+                                                index
+                                            )
+                                        }
+                                    >
+                                        <option value="sMonitoringVar">
+                                            sMonitoringVar
+                                        </option>
+                                        <option value="sControlVar">
+                                            sControlVar
+                                        </option>
+                                    </select>
+                                    <br />
+                                    <br />
+                                    <label>
+                                        Enter bType of BDA for DAType :{" "}
+                                    </label>
+                                    <select
+                                        value={LN_DOI_List[index]?.bType || ""}
+                                        onChange={(e) =>
+                                            handlebTypeChange(e, index)
+                                        }
+                                    >
+                                        {bTypeList.map((type, index) => {
+                                            return (
+                                                <option value={type} key={type}>
+                                                    {type}
+                                                </option>
+                                            );
+                                        })}
+                                    </select>
+                                    <br />
+                                    <br />
                                 </div>
                             )
                         )}
@@ -265,6 +463,8 @@ function App() {
                     LNType={LNType}
                     LNClass={LNClass}
                     LN_DOI_List={LN_DOI_List}
+                    reportIntegrityPeriod={reportIntegrityPeriod}
+                    maxClientsAllowed={maxClientsAllowed}
                 />
             </div>
         </div>

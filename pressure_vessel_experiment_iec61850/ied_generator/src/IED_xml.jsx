@@ -11,6 +11,8 @@ function IED_xml({
     LDeviceName,
     LN0lnType,
     LN0DatasetName,
+    reportIntegrityPeriod,
+    maxClientsAllowed,
     LNType,
     LNClass,
     LN_DOI_List,
@@ -63,12 +65,12 @@ function IED_xml({
                 daName="mag.f" fc="MX" />
             </DataSet>
 
-            <ReportControl name="Measurements" desc="" datSet="Measurements" intgPd="1000"
+            <ReportControl name="Measurements" desc="" datSet="Measurements" intgPd="${reportIntegrityPeriod}"
               rptID="Measurements" confRev="0" buffered="false" bufTime="50">
               <TrgOps dchg="true" qchg="true" dupd="true" period="true" />
               <OptFields seqNum="true" timeStamp="true" reasonCode="true" dataSet="true"
                 dataRef="true" entryID="true" configRef="true" />
-              <RptEnabled max="5" />
+              <RptEnabled max="${maxClientsAllowed}" />
             </ReportControl>
 
             <DOI name="Mod">
@@ -109,7 +111,12 @@ function IED_xml({
               <DAI name="stVal">
                 <Val>ok</Val>
               </DAI>
-            </DOI>`}
+            </DOI>
+
+<!--  =============================================================
+                  User Defined DOIs
+      ============================================================== -->
+            `}
             </pre>
             <pre>
                 {LN_DOI_List.map((doi, index) => {
@@ -133,7 +140,12 @@ function IED_xml({
       <DO name="Mod" type="ENC_1_Mod" />
       <DO name="Beh" type="ENS_1_Beh" />
       <DO name="Health" type="ENS_2_Health" />
-      <DO name="NamPlt" type="LPL_1_NamPlt" />`}
+      <DO name="NamPlt" type="LPL_1_NamPlt" />
+      
+  <!--  =============================================================
+              User Defined DOs
+        ============================================================= -->
+      `}
             </pre>
             <pre>
                 {LN_DOI_List.map((doi, index) => {
@@ -170,21 +182,50 @@ function IED_xml({
       <DA name="configRev" bType="VisString255" fc="DC" />
       <DA name="ldNs" bType="VisString255" fc="EX" />
     </DOType>
-    <DOType id="MV_1_CurrentPressure" cdc="MV">
-      <DA name="mag" type="AnalogueValue_1" bType="Struct" fc="MX" dchg="true">
-        <Private name="mag">
-          <Private name="f">
-            <Property Name="sMonitoringVar" Value="raw_pressure" />
-          </Private>
-        </Private>
-      </DA>
-      <DA name="q" bType="Quality" fc="MX" qchg="true" />
-      <DA name="t" bType="Timestamp" fc="MX" />
-    </DOType>
 
-    <DAType id="AnalogueValue_1">
-      <BDA name="f" bType="INT16" />
-    </DAType>
+    <!--  =============================================================
+                  User Defined DOTypes
+          ============================================================== -->
+    `}
+            </pre>
+            <pre>
+                {LN_DOI_List.map((doi, index) => {
+                    return `      <DOType id="${
+                        doi?.cdc + "_" + doi?.name
+                    }" cdc="${doi?.cdc}" />
+        <DA name="mag" type="${
+            doi?.cdc + "_" + doi?.name + "_Value"
+        }" bType="Struct" fc="${doi?.fc}" dchg="true">
+          <Private name="mag">
+            <Private name="f">
+                <Property Name="${doi?.openplcVarType}" Value="${
+                        doi?.openplcVar
+                    }" />
+            </Private>
+          </Private>
+        </DA>
+      </DOType>\n\n`;
+                })}
+            </pre>
+            <pre>
+                {`
+
+<!--  =============================================================
+                  User Defined DATypes
+      ============================================================== -->
+       `}
+            </pre>
+            <pre>
+                {LN_DOI_List.map((doi, index) => {
+                    return `      <DAType id="${
+                        doi?.cdc + "_" + doi?.name + "_Value"
+                    }" >
+        <BDA name="f" bType="${doi?.bType}" />
+      </DAType>\n\n`;
+                })}
+            </pre>
+            <pre>
+                {`
 
     <EnumType id="Beh">
       <EnumVal ord="1">on</EnumVal>
