@@ -1,0 +1,15 @@
+export const fcList = [
+    "ST",
+    "MX",
+    "CO",
+    "SP",
+    "SG",
+    "SE",
+    "SV",
+    "CF",
+    "DC",
+    "EX",
+    "SR",
+    "BL",
+    "OR",
+];

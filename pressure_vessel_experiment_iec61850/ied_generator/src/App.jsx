@@ -3,6 +3,8 @@ import "./App.css";
 import IED_xml from "./IED_xml";
 import ShortUniqueId from "short-unique-id";
 import { bTypeList } from "./data/DA_bType_list";
+import { cdcList } from "./data/cdc_list";
+import { fcList } from "./data/fc_list";
 
 function App() {
     const [IEDName, setIEDName] = useState("");
@@ -82,7 +84,7 @@ function App() {
             }
         );
         element.href = URL.createObjectURL(file);
-        element.download = `IED_${randomUUID()}.xml`;
+        element.download = `IED_${randomUUID()}.icd`;
         document.body.appendChild(element); // Required for this to work in FireFox
         element.click();
     };
@@ -320,14 +322,20 @@ function App() {
                                     <label>
                                         Enter cdc of DOI{index + 1} :{" "}
                                     </label>
-                                    <input
-                                        id={"DOI" + index}
-                                        value={LN_DOI_List[index]?.cdc || ""}
+                                    <select
+                                        value={LN_DOI_List[index]?.cdc || "MV"}
                                         onChange={(e) =>
                                             handleDOICdcChange(e, index)
                                         }
-                                        type="text"
-                                    />
+                                    >
+                                        {cdcList.map((cdc, index) => {
+                                            return (
+                                                <option value={cdc} key={cdc}>
+                                                    {cdc}
+                                                </option>
+                                            );
+                                        })}
+                                    </select>
                                     <br />
                                     <br />
                                     <label>
@@ -366,14 +374,20 @@ function App() {
                                     <label>
                                         Enter fc value of DOI{index + 1} :{" "}
                                     </label>
-                                    <input
-                                        id={"DOI" + index}
-                                        value={LN_DOI_List[index]?.fc || ""}
+                                    <select
+                                        value={LN_DOI_List[index]?.fc || "MX"}
                                         onChange={(e) =>
                                             handleDOIfcChange(e, index)
                                         }
-                                        type="text"
-                                    />
+                                    >
+                                        {fcList.map((fc, index) => {
+                                            return (
+                                                <option value={fc} key={fc}>
+                                                    {fc}
+                                                </option>
+                                            );
+                                        })}
+                                    </select>
                                     <br />
                                     <br />
                                     <label>

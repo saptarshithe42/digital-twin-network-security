@@ -192,7 +192,7 @@ function IED_xml({
                 {LN_DOI_List.map((doi, index) => {
                     return `      <DOType id="${
                         doi?.cdc + "_" + doi?.name
-                    }" cdc="${doi?.cdc}" />
+                    }" cdc="${doi?.cdc}" >
         <DA name="mag" type="${
             doi?.cdc + "_" + doi?.name + "_Value"
         }" bType="Struct" fc="${doi?.fc}" dchg="true">
