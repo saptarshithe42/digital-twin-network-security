@@ -1,0 +1,111 @@
+/*
+ * static_model.h
+ *
+ * automatically generated from ied01.icd
+ */
+
+#ifndef STATIC_MODEL_H_
+#define STATIC_MODEL_H_
+
+#include <stdlib.h>
+#include "iec61850_model.h"
+
+extern IedModel iedModel;
+extern LogicalDevice iedModel_LogicalDevice;
+extern LogicalNode   iedModel_LogicalDevice_LLN0;
+extern DataObject    iedModel_LogicalDevice_LLN0_Mod;
+extern DataAttribute iedModel_LogicalDevice_LLN0_Mod_stVal;
+extern DataAttribute iedModel_LogicalDevice_LLN0_Mod_q;
+extern DataAttribute iedModel_LogicalDevice_LLN0_Mod_t;
+extern DataAttribute iedModel_LogicalDevice_LLN0_Mod_ctlModel;
+extern DataObject    iedModel_LogicalDevice_LLN0_Beh;
+extern DataAttribute iedModel_LogicalDevice_LLN0_Beh_stVal;
+extern DataAttribute iedModel_LogicalDevice_LLN0_Beh_q;
+extern DataAttribute iedModel_LogicalDevice_LLN0_Beh_t;
+extern DataObject    iedModel_LogicalDevice_LLN0_Health;
+extern DataAttribute iedModel_LogicalDevice_LLN0_Health_stVal;
+extern DataAttribute iedModel_LogicalDevice_LLN0_Health_q;
+extern DataAttribute iedModel_LogicalDevice_LLN0_Health_t;
+extern DataObject    iedModel_LogicalDevice_LLN0_NamPlt;
+extern DataAttribute iedModel_LogicalDevice_LLN0_NamPlt_vendor;
+extern DataAttribute iedModel_LogicalDevice_LLN0_NamPlt_swRev;
+extern DataAttribute iedModel_LogicalDevice_LLN0_NamPlt_d;
+extern DataAttribute iedModel_LogicalDevice_LLN0_NamPlt_configRev;
+extern DataAttribute iedModel_LogicalDevice_LLN0_NamPlt_ldNs;
+extern LogicalNode   iedModel_LogicalDevice_GGIO1;
+extern DataObject    iedModel_LogicalDevice_GGIO1_Mod;
+extern DataAttribute iedModel_LogicalDevice_GGIO1_Mod_stVal;
+extern DataAttribute iedModel_LogicalDevice_GGIO1_Mod_q;
+extern DataAttribute iedModel_LogicalDevice_GGIO1_Mod_t;
+extern DataAttribute iedModel_LogicalDevice_GGIO1_Mod_ctlModel;
+extern DataObject    iedModel_LogicalDevice_GGIO1_Beh;
+extern DataAttribute iedModel_LogicalDevice_GGIO1_Beh_stVal;
+extern DataAttribute iedModel_LogicalDevice_GGIO1_Beh_q;
+extern DataAttribute iedModel_LogicalDevice_GGIO1_Beh_t;
+extern DataObject    iedModel_LogicalDevice_GGIO1_Health;
+extern DataAttribute iedModel_LogicalDevice_GGIO1_Health_stVal;
+extern DataAttribute iedModel_LogicalDevice_GGIO1_Health_q;
+extern DataAttribute iedModel_LogicalDevice_GGIO1_Health_t;
+extern DataObject    iedModel_LogicalDevice_GGIO1_NamPlt;
+extern DataAttribute iedModel_LogicalDevice_GGIO1_NamPlt_vendor;
+extern DataAttribute iedModel_LogicalDevice_GGIO1_NamPlt_swRev;
+extern DataAttribute iedModel_LogicalDevice_GGIO1_NamPlt_d;
+extern DataAttribute iedModel_LogicalDevice_GGIO1_NamPlt_configRev;
+extern DataAttribute iedModel_LogicalDevice_GGIO1_NamPlt_ldNs;
+extern DataObject    iedModel_LogicalDevice_GGIO1_AnIn1;
+extern DataAttribute iedModel_LogicalDevice_GGIO1_AnIn1_mag;
+extern DataAttribute iedModel_LogicalDevice_GGIO1_AnIn1_mag_f;
+extern DataAttribute iedModel_LogicalDevice_GGIO1_AnIn1_q;
+extern DataAttribute iedModel_LogicalDevice_GGIO1_AnIn1_t;
+
+
+
+#define IEDMODEL_LogicalDevice (&iedModel_LogicalDevice)
+#define IEDMODEL_LogicalDevice_LLN0 (&iedModel_LogicalDevice_LLN0)
+#define IEDMODEL_LogicalDevice_LLN0_Mod (&iedModel_LogicalDevice_LLN0_Mod)
+#define IEDMODEL_LogicalDevice_LLN0_Mod_stVal (&iedModel_LogicalDevice_LLN0_Mod_stVal)
+#define IEDMODEL_LogicalDevice_LLN0_Mod_q (&iedModel_LogicalDevice_LLN0_Mod_q)
+#define IEDMODEL_LogicalDevice_LLN0_Mod_t (&iedModel_LogicalDevice_LLN0_Mod_t)
+#define IEDMODEL_LogicalDevice_LLN0_Mod_ctlModel (&iedModel_LogicalDevice_LLN0_Mod_ctlModel)
+#define IEDMODEL_LogicalDevice_LLN0_Beh (&iedModel_LogicalDevice_LLN0_Beh)
+#define IEDMODEL_LogicalDevice_LLN0_Beh_stVal (&iedModel_LogicalDevice_LLN0_Beh_stVal)
+#define IEDMODEL_LogicalDevice_LLN0_Beh_q (&iedModel_LogicalDevice_LLN0_Beh_q)
+#define IEDMODEL_LogicalDevice_LLN0_Beh_t (&iedModel_LogicalDevice_LLN0_Beh_t)
+#define IEDMODEL_LogicalDevice_LLN0_Health (&iedModel_LogicalDevice_LLN0_Health)
+#define IEDMODEL_LogicalDevice_LLN0_Health_stVal (&iedModel_LogicalDevice_LLN0_Health_stVal)
+#define IEDMODEL_LogicalDevice_LLN0_Health_q (&iedModel_LogicalDevice_LLN0_Health_q)
+#define IEDMODEL_LogicalDevice_LLN0_Health_t (&iedModel_LogicalDevice_LLN0_Health_t)
+#define IEDMODEL_LogicalDevice_LLN0_NamPlt (&iedModel_LogicalDevice_LLN0_NamPlt)
+#define IEDMODEL_LogicalDevice_LLN0_NamPlt_vendor (&iedModel_LogicalDevice_LLN0_NamPlt_vendor)
+#define IEDMODEL_LogicalDevice_LLN0_NamPlt_swRev (&iedModel_LogicalDevice_LLN0_NamPlt_swRev)
+#define IEDMODEL_LogicalDevice_LLN0_NamPlt_d (&iedModel_LogicalDevice_LLN0_NamPlt_d)
+#define IEDMODEL_LogicalDevice_LLN0_NamPlt_configRev (&iedModel_LogicalDevice_LLN0_NamPlt_configRev)
+#define IEDMODEL_LogicalDevice_LLN0_NamPlt_ldNs (&iedModel_LogicalDevice_LLN0_NamPlt_ldNs)
+#define IEDMODEL_LogicalDevice_GGIO1 (&iedModel_LogicalDevice_GGIO1)
+#define IEDMODEL_LogicalDevice_GGIO1_Mod (&iedModel_LogicalDevice_GGIO1_Mod)
+#define IEDMODEL_LogicalDevice_GGIO1_Mod_stVal (&iedModel_LogicalDevice_GGIO1_Mod_stVal)
+#define IEDMODEL_LogicalDevice_GGIO1_Mod_q (&iedModel_LogicalDevice_GGIO1_Mod_q)
+#define IEDMODEL_LogicalDevice_GGIO1_Mod_t (&iedModel_LogicalDevice_GGIO1_Mod_t)
+#define IEDMODEL_LogicalDevice_GGIO1_Mod_ctlModel (&iedModel_LogicalDevice_GGIO1_Mod_ctlModel)
+#define IEDMODEL_LogicalDevice_GGIO1_Beh (&iedModel_LogicalDevice_GGIO1_Beh)
+#define IEDMODEL_LogicalDevice_GGIO1_Beh_stVal (&iedModel_LogicalDevice_GGIO1_Beh_stVal)
+#define IEDMODEL_LogicalDevice_GGIO1_Beh_q (&iedModel_LogicalDevice_GGIO1_Beh_q)
+#define IEDMODEL_LogicalDevice_GGIO1_Beh_t (&iedModel_LogicalDevice_GGIO1_Beh_t)
+#define IEDMODEL_LogicalDevice_GGIO1_Health (&iedModel_LogicalDevice_GGIO1_Health)
+#define IEDMODEL_LogicalDevice_GGIO1_Health_stVal (&iedModel_LogicalDevice_GGIO1_Health_stVal)
+#define IEDMODEL_LogicalDevice_GGIO1_Health_q (&iedModel_LogicalDevice_GGIO1_Health_q)
+#define IEDMODEL_LogicalDevice_GGIO1_Health_t (&iedModel_LogicalDevice_GGIO1_Health_t)
+#define IEDMODEL_LogicalDevice_GGIO1_NamPlt (&iedModel_LogicalDevice_GGIO1_NamPlt)
+#define IEDMODEL_LogicalDevice_GGIO1_NamPlt_vendor (&iedModel_LogicalDevice_GGIO1_NamPlt_vendor)
+#define IEDMODEL_LogicalDevice_GGIO1_NamPlt_swRev (&iedModel_LogicalDevice_GGIO1_NamPlt_swRev)
+#define IEDMODEL_LogicalDevice_GGIO1_NamPlt_d (&iedModel_LogicalDevice_GGIO1_NamPlt_d)
+#define IEDMODEL_LogicalDevice_GGIO1_NamPlt_configRev (&iedModel_LogicalDevice_GGIO1_NamPlt_configRev)
+#define IEDMODEL_LogicalDevice_GGIO1_NamPlt_ldNs (&iedModel_LogicalDevice_GGIO1_NamPlt_ldNs)
+#define IEDMODEL_LogicalDevice_GGIO1_AnIn1 (&iedModel_LogicalDevice_GGIO1_AnIn1)
+#define IEDMODEL_LogicalDevice_GGIO1_AnIn1_mag (&iedModel_LogicalDevice_GGIO1_AnIn1_mag)
+#define IEDMODEL_LogicalDevice_GGIO1_AnIn1_mag_f (&iedModel_LogicalDevice_GGIO1_AnIn1_mag_f)
+#define IEDMODEL_LogicalDevice_GGIO1_AnIn1_q (&iedModel_LogicalDevice_GGIO1_AnIn1_q)
+#define IEDMODEL_LogicalDevice_GGIO1_AnIn1_t (&iedModel_LogicalDevice_GGIO1_AnIn1_t)
+
+#endif /* STATIC_MODEL_H_ */
+

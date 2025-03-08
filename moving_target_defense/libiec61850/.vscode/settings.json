@@ -1,0 +1,20 @@
+{
+    "files.associations": {
+        "*.ejs": "html",
+        "system_error": "c",
+        "array": "c",
+        "functional": "c",
+        "tuple": "c",
+        "type_traits": "c",
+        "utility": "c",
+        "iec61850_server.h": "c",
+        "signal.h": "c",
+        "platform.h": "c",
+        "entropy.h": "c",
+        "net_sockets.h": "c",
+        "ssl_cache.h": "c",
+        "stdlib.h": "c",
+        "hal_thread.h": "c",
+        "static_model.h": "c"
+    }
+}
