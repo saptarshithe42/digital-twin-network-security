@@ -1,7 +1,7 @@
 LIBIEC_HOME=../..
 
-PROJECT_BINARY_NAME = rcb_client_example_read
-PROJECT_SOURCES = rcb_client_example_read.c
+PROJECT_BINARY_NAME = polling_client
+PROJECT_SOURCES = polling_client.c
 
 include $(LIBIEC_HOME)/make/target_system.mk
 include $(LIBIEC_HOME)/make/stack_includes.mk

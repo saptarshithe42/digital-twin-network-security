@@ -303,7 +303,7 @@ int main(int argc, char **argv)
 
     while (1)
     {
-        sleep(5); // Fixed interval
+        // sleep(5); // Fixed interval
     }
 
     IedConnection_destroy(connection);
