@@ -34,8 +34,7 @@ class EventMessage(event.EventBase):
 class MovingTargetDefense(app_manager.RyuApp):
     OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]
     _EVENTS = [EventMessage]
-    R2V_Mappings = {"10.0.0.1": "", "10.0.0.2": "", "10.0.0.3": "", "10.0.0.4": "", "10.0.0.5": "", "10.0.0.6": "",
-                    "10.0.0.7": "", "10.0.0.8": ""}
+    R2V_Mappings = {"10.0.0.1": "", "10.0.0.2": "", "10.0.0.3": "", "10.0.0.4": ""}
     V2R_Mappings = {}
     AuthorizedEntities = ['10.0.0.1']
     Resources = ["10.0.0.9", "10.0.0.10", "10.0.0.11", "10.0.0.12",
