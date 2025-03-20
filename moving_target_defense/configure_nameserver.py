@@ -11,10 +11,10 @@ print(virtual_ips)
 file.close()
 
 SHUFFLE_INTERVAL = 30
-RECONFIGURATION_INTERVAL = 10
+RECONFIGURATION_INTERVAL = 5
 
 while True:
-    seed = int(time.time() / SHUFFLE_INTERVAL) - 1
+    seed = int(time.time() / SHUFFLE_INTERVAL) 
     random.seed(seed)
     index = random.randint(0, len(virtual_ips) - 1)
     dns_server_ip = virtual_ips[index]
