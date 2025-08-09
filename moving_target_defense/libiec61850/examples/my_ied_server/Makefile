@@ -1,7 +1,7 @@
 LIBIEC_HOME=../..
 
-PROJECT_BINARY_NAME = server_example_simple
-PROJECT_SOURCES = server_example_simple.c
+PROJECT_BINARY_NAME = ied_server
+PROJECT_SOURCES = ied_server.c
 PROJECT_SOURCES += static_model.c
 
 PROJECT_ICD_FILE = ied01.icd
